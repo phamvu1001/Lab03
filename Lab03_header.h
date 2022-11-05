@@ -16,7 +16,7 @@ void GenerateNearlySortedData(int a[], int n);
 void GenerateData(int a[], int n, int dataType);
 int data_order(char* argv[], int pos, string &order);
 void Copy_Array(int* a, int* b, int n);
-//command
+//command_line
 int line_order(int argv, char* argv2[]);
 void Command_line(int argv, char* argv2[]);
 void Command_line_1(char* argv[]);
@@ -26,9 +26,9 @@ void Command_line_4(char* argv[]);
 void Command_line_5(char* argv[]);
 void write_to_file(string file_name, int* arr, int size);
 //sorting algorithm
-long long Bubble_sort(int* a, int n);
-long long Selection_sort(int* a, int n);
-long long  Insertion_sort(int* a, int n);
+unsigned long long int Bubble_sort(int* a, int n);
+unsigned long long int Selection_sort(int* a, int n);
+unsigned long long int Insertion_sort(int* a, int n);
 long long heapConstruct(int a[], int n);
 long long heapSort(int a[], int n);
 long long merge(int a[], int first, int mid, int last);
@@ -40,7 +40,7 @@ long long RadixSort(int* arr, int n);
 long long ShellSort(int arr[], int n);
 long long countingSort(int a[], int n);
 long long flashSort(int a[], int n);
-long long Calculate_Complexity(char* argv[], int pos, double& time, int arr[], int size);
+unsigned long long int Calculate_Complexity(char* argv[], int pos, double& time, int arr[], int size);
 #endif // !HEADER_H
 
 
