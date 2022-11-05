@@ -319,20 +319,20 @@ void Command_line_5(char* argv[]) {
 	GenerateData(arr, size, data_order(argv, 5,order));
 	write_to_file("input.txt", arr, size);
 	double time1, time2;
-	int ass1, ass2;
+	int comp1, comp2;
 	int* arr2 = new int[size];
 	for (int i = 0; i < size; i++) {
 		arr2[i] = arr[i];
 	}
-	ass1 = Calculate_Complexity(argv, 2, time1, arr, size);
-	ass2 = Calculate_Complexity(argv, 3, time2, arr2, size);
+	comp1 = Calculate_Complexity(argv, 2, time1, arr, size);
+	comp2 = Calculate_Complexity(argv, 3, time2, arr2, size);
 	cout << "COMPARE MODE\n";
 	cout << "Algorithm:" << argv[2] << " | " << argv[3] << endl;
 	cout << "Input size: " << argv[4] << endl;
 	cout << "Input order: "<<order<<endl;
 	cout << "--------------\n";
 	cout << "Running time:(ms) " << time1 << " | " << time2 << endl;
-	cout << "Comparisions: " << ass1 << " | " << ass2 << endl;
+	cout << "Comparisions: " << comp1 << " | " << comp2 << endl;
 }
 void write_to_file(string file_name, int *arr, int size) {
 	ofstream f;

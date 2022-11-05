@@ -8,19 +8,19 @@ void swap(int& a, int& b)
 
 //-------------------------------------------------
 int data_order(char* argv[], int pos, string& order) {
-	if (strcmp(argv[5], "-rand") == 0) {
+	if (strcmp(argv[pos], "-rand") == 0) {
 		order = "randomized data";
 		return 0;
 	}
-	if (strcmp(argv[5], "-nsorted") == 0) {
+	if (strcmp(argv[pos], "-nsorted") == 0) {
 		order = "nearly sorted data";
 		return 1;
 	}
-	if (strcmp(argv[5], "-sorted") == 0) {
+	if (strcmp(argv[pos], "-sorted") == 0) {
 		order = "sorted data";
 		return 2;
 	}
-	if (strcmp(argv[5], "-rev") == 0) {
+	if (strcmp(argv[pos], "-rev") == 0) {
 		order = "reverse sorted data";
 		return 3;
 	}
