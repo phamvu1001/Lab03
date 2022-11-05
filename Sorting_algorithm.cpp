@@ -1,70 +1,78 @@
 ﻿#include "Lab03_header.h"
+
 // BUBBLE SORT
 // sap xep tang dan
-long long Bubble_sort(int* a, int n) { // so phan tu n
-	long long Calc = 1;
-	for (int i = 0; Calc++ && i < n - 1; i++) {
-		for (int j = 0; Calc++ && j < n - i - 1; j++) {
-			if (Calc++ && a[j] > a[j + 1]) {
-				int temp = a[j];
-				a[j] = a[j + 1];
-				a[j + 1] = temp;
-			}
-		}
-	}
-	return Calc - 1;
+
+//Comparison Calc
+unsigned long long int Bubble_sort(int* a, int n) { // so phan tu n
+    unsigned long long int Calc = 1;
+    for (int i = 0; Calc++ && i < n - 1; i++) {
+        for (int j = 0; Calc++ && j < n - i - 1; j++) {
+            if (Calc++ && a[j] > a[j + 1]) {
+                int temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+    return Calc-1;
 }
 
 // SELECTION SORT
 // sap xep tang dan
-long long Selection_sort(int* a, int n) {
-	long long Calc = 1;
-	int MinIdx = 0;
-	for (int i = 0; Calc++ && i < n - 1; i++) {
 
-		// gan vi tri cua phan tu nho nhat cho i
-		MinIdx = i;
+//Comparison Calc
+unsigned long long int Selection_sort(int* a, int n) {
+    unsigned long long int Calc = 1;
+    int MinIdx = 0;
+    for (int i = 0; Calc++ && i < n - 1; i++) {
 
-		// tim vi tri cua phan tu co gia tri nho nhat tu i+1 den het
-		for (int j = i + 1; Calc++ && j < n; j++)
-		{
-			if (Calc++ && a[MinIdx] >= a[j])
-				MinIdx = j;
-		}
+        // gan vi tri cua phan tu nho nhat cho i
+        MinIdx = i;
 
-		// hoan doi phan tu thu i va phan tu nho nhat
-		int temp = a[i];
-		a[i] = a[MinIdx];
-		a[MinIdx] = temp;
-	}
-	return Calc - 1;
+        // tim vi tri cua phan tu co gia tri nho nhat tu i+1 den het
+        for (int j = i + 1; Calc++ && j < n; j++)
+        {
+            if (Calc++ && a[MinIdx] >= a[j])
+                MinIdx = j;
+        }
+
+        // hoan doi phan tu thu i va phan tu nho nhat
+        int temp = a[i];
+        a[i] = a[MinIdx];
+        a[MinIdx] = temp;
+    }
+    return Calc-1;
 }
 
 // INSERTION SORT
 // sap xep tang dan
-long long  Insertion_sort(int* a, int n) {
-	long long Calc = 1;
-	int key, j;
-	// chay tu vi tri thu 2 den vi tri cuoi cung
-	for (int i = 1; Calc++ && i < n; i++) {
 
-		// gan key cho phan tu i
-		key = a[i];
+//Comparison Calc
+unsigned long long int Insertion_sort(int* a, int n) {
+    unsigned long long int Calc = 1;
+    int key, j;
+    // chay tu vi tri thu 2 den vi tri cuoi cung
+    for (int i = 1; Calc++ && i < n; i++) {
 
-		// j la vi tri cuoi cung cua phan da sap xep
-		j = i - 1;
+        // gan key cho phan tu i
+        key = a[i];
 
-		// so sanh lan luot key voi cac phan tu cua phan da sap xep
-		while (Calc++ && key < a[j] && Calc++ && j >= 0) {
-			//key< a[j] dam bao tinh on dinh cua day
-			a[j + 1] = a[j];
-			j--;
-		}
-		// chen phan tu key vao vi tri chen
-		a[j + 1] = key;
-	}
-	return Calc - 1;
+        // j la vi tri cuoi cung cua phan da sap xep
+        j = i - 1;
+
+        // so sanh lan luot key voi cac phan tu cua phan da sap xep
+        while (Calc++ && key < a[j] && Calc++ && j >= 0) {
+            //key< a[j] dam bao tinh on dinh cua day
+            a[j + 1] = a[j];
+            j--;
+        }
+        // chen phan tu key vao vi tri chen
+        a[j + 1] = key;
+    }
+    return Calc - 1;
 }
+
 // HEAP SORT
 // Ham dua cac phan tu ve vi tri dung voi cau truc heap
 int heapRebuild(int a[], int pos, int n)
