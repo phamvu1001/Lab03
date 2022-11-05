@@ -15,6 +15,7 @@ void GenerateReverseData(int a[], int n);
 void GenerateNearlySortedData(int a[], int n);
 void GenerateData(int a[], int n, int dataType);
 int data_order(char* argv[], int pos, string &order);
+void Copy_Array(int* a, int* b, int n);
 //command
 void Command_line(char* argv[], int argv2);
 int line_order(char* argv[], int argv2);
@@ -28,19 +29,18 @@ void write_to_file(string file_name, int* arr, int size);
 long long Bubble_sort(int* a, int n);
 long long Selection_sort(int* a, int n);
 long long  Insertion_sort(int* a, int n);
-int heapRebuild(int a[], int pos, int n);
-int heapConstruct(int a[], int n);
-int heapSort(int a[], int n);
-int merge(int a[], int first, int mid, int last);
-int mergeSort(int a[], int first, int last);
-int partition(int a[], int i, int j, int& comp);
-int quickSort(int a[], int first, int last);
-int ShakerSort(int* a, int n);
-int RadixSort(int* arr, int n);
-int ShellSort(int arr[], int n);
-int countingSort(int a[], int n);
-int flashSort(int a[], int n);
-int Calculate_Complexity(char* argv[], int pos, double& time, int arr[], int size);
+long long heapConstruct(int a[], int n);
+long long heapSort(int a[], int n);
+long long merge(int a[], int first, int mid, int last);
+long long mergeSort(int a[], int first, int last);
+int partition(int a[], int i, int j, long long& comp);
+long long quickSort(int a[], int first, int last);
+long long ShakerSort(int* a, int n);
+long long RadixSort(int* arr, int n);
+long long ShellSort(int arr[], int n);
+long long countingSort(int a[], int n);
+long long flashSort(int a[], int n);
+long long Calculate_Complexity(char* argv[], int pos, double& time, int arr[], int size);
 #endif // !HEADER_H
 
 

@@ -54,6 +54,7 @@ void Command_line(char* argv[], int argv2) {
 }
 void Command_line_1(char* argv[]){}
 void Command_line_2(char* argv[]) {
+
 	//tính size
 	int size = atoi(argv[4]);
 	int* arr = new int[size];
@@ -73,7 +74,9 @@ void Command_line_2(char* argv[]) {
 	else {
 		output = -1;
 	}
+
 	//vì kích thước mảng có thể lớn nên khuyên mọi người cấp phát động
+
 	double time1;
 	int comp1;
 	comp1 = Calculate_Complexity(argv, 2, time1, arr, size);
@@ -216,7 +219,41 @@ void Command_line_3(char* argv[]) {
 		break;
 	}
 }
-void Command_line_4(char* argv[]){}
+void Command_line_4(char* argv[]) {
+	double time1 = 0, time2 = 0;
+	int comp1 = 0, comp2 = 0;
+	int size = 0;
+	int* arr;
+
+	//Get Size and Data from file
+	ifstream fin;
+	fin.open(argv[4]);
+	if (fin.is_open()) {
+		fin >> size;
+		arr = new int[size];
+		for (int i = 0; i < size; i++) {
+			fin >> arr[i];
+		}
+		fin.close();
+	}
+	else {
+		cout << "Error!" << endl;
+		system("pause");
+		return;
+	}
+
+	int* arr2 = new int[size];
+	Copy_Array(arr, arr2, size);
+	comp1 = Calculate_Complexity(argv, 2, time1, arr, size);
+	comp2 = Calculate_Complexity(argv, 3, time2, arr2, size);
+	cout << "COMPARE MODE\n";
+	cout << "Algorithm:" << argv[2] << " | " << argv[3] << endl;
+	cout << "Input file: " << argv[4] << endl;
+	cout << "Input size: " << size << endl;
+	cout << "--------------\n";
+	cout << "Running time:(ms) " << time1 << " | " << time2 << endl;
+	cout << "Comparisons: " << comp1 << " | " << comp2 << endl;
+}
 void Command_line_5(char* argv[]) {
 	int size = atoi(argv[4]);
 	int* arr = new int[size];

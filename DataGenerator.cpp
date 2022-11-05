@@ -93,3 +93,8 @@ void GenerateData(int a[], int n, int dataType)
 		printf("Error: unknown data type!\n");
 	}
 }
+void Copy_Array(int* a, int* b, int n) {
+	for (int i = 0; i < n; i++) {
+		b[i] = a[i];
+	}
+}
