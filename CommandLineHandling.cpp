@@ -1,12 +1,12 @@
 ﻿#include "Lab03_header.h"
-int line_order(char* argv[], int argv2) {
-	if (strcmp(argv[1], "-a") == 0) {
-		switch (argv2) {
+int line_order(int argv, char* argv2[]) {
+	if (strcmp(argv2[1], "-a") == 0) {
+		switch (argv) {
 			case 5: {
 				bool is_command1 = true;
 				int i = 0;
-				while (argv[argv2][i] != '\0') {
-					if (argv[argv2][i] > '9' || argv[argv2][i] < '0') {
+				while (argv2[argv][i] != '\0') {
+					if (argv2[argv][i] > '9' || argv2[argv][i] < '0') {
 						return 1;
 					}
 					return 3;
@@ -19,7 +19,7 @@ int line_order(char* argv[], int argv2) {
 		}
 	}
 	else {
-		switch (argv2) {
+		switch (argv) {
 			case 5:
 				return 4;
 			case 6:
@@ -30,23 +30,23 @@ int line_order(char* argv[], int argv2) {
 	}
 	return -1;
 }
-void Command_line(char* argv[], int argv2) {
+void Command_line(int argv, char* argv2[]) {
 	int order = line_order(argv, argv2);
 	switch (order) {
 		case 1:
-			Command_line_1(argv);
+			Command_line_1(argv2);
 			return;
 		case 2:
-			Command_line_2(argv);
+			Command_line_2(argv2);
 			return;
 		case 3:
-			Command_line_3(argv);
+			Command_line_3(argv2);
 			return;
 		case 4:
-			Command_line_4(argv);
+			Command_line_4(argv2);
 			return;
 		case 5:
-			Command_line_5(argv);
+			Command_line_5(argv2);
 			return;
 		default:
 			return;

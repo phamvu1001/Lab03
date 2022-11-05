@@ -17,8 +17,8 @@ void GenerateData(int a[], int n, int dataType);
 int data_order(char* argv[], int pos, string &order);
 void Copy_Array(int* a, int* b, int n);
 //command
-void Command_line(char* argv[], int argv2);
-int line_order(char* argv[], int argv2);
+int line_order(int argv, char* argv2[]);
+void Command_line(int argv, char* argv2[]);
 void Command_line_1(char* argv[]);
 void Command_line_2(char* argv[]);
 void Command_line_3(char* argv[]);
