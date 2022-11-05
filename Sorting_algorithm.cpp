@@ -370,37 +370,37 @@ long long flashSort(int a[], int n)
 	comp += Insertion_sort(a, n);
 	return comp;
 }
-long long Calculate_Complexity(char* argv[], int pos, double& time, int arr[], int size) {
+unsigned long long int Calculate_Complexity(char* argv[], int pos, double& time, int arr[], int size) {
 	if (strcmp(argv[pos], "shaker-sort") == 0) {
-        clock_t start, end;
-        start = clock();
-        int comp = ShakerSort(arr, size);
-        end = clock();
-        time = (double)(end - start) / CLOCKS_PER_SEC;
-        return comp;
+		clock_t start, end;
+		start = clock();
+		unsigned long long int comp = ShakerSort(arr, size);
+		end = clock();
+		time = (double)(end - start) / CLOCKS_PER_SEC;
+		return comp;
 	}
 	if (strcmp(argv[pos], "radix-sort") == 0) {
-        clock_t start, end;
-        start = clock();
-		long long comp = RadixSort(arr, size);
-        end = clock();
-        time = (double)(end - start) / CLOCKS_PER_SEC;
-        time *= 1000;
-        return comp;
+		clock_t start, end;
+		start = clock();
+		unsigned long long int comp = RadixSort(arr, size);
+		end = clock();
+		time = (double)(end - start) / CLOCKS_PER_SEC;
+		time *= 1000;
+		return comp;
 	}
-    if (strcmp(argv[pos], "shell-sort") == 0) {
-        clock_t start, end;
-        start = clock();
-		long long comp = ShellSort(arr, size);
-        end = clock();
-        time = (double)(end - start) / CLOCKS_PER_SEC;
-        time *= 1000;
-        return comp;
-    }
+	if (strcmp(argv[pos], "shell-sort") == 0) {
+		clock_t start, end;
+		start = clock();
+		unsigned long long int comp = ShellSort(arr, size);
+		end = clock();
+		time = (double)(end - start) / CLOCKS_PER_SEC;
+		time *= 1000;
+		return comp;
+	}
 	if (strcmp(argv[pos], "insertion-sort") == 0) {
 		clock_t start, end;
 		start = clock();
-		long long comp = Insertion_sort(arr, size);
+		unsigned long long int comp = Insertion_sort(arr, size);
 		end = clock();
 		time = (double)(end - start) / CLOCKS_PER_SEC;
 		time *= 1000;
@@ -409,7 +409,7 @@ long long Calculate_Complexity(char* argv[], int pos, double& time, int arr[], i
 	if (strcmp(argv[pos], "bubble-sort") == 0) {
 		clock_t start, end;
 		start = clock();
-		long long comp = Bubble_sort(arr, size);
+		unsigned long long int comp = Bubble_sort(arr, size);
 		end = clock();
 		time = (double)(end - start) / CLOCKS_PER_SEC;
 		time *= 1000;
@@ -418,7 +418,7 @@ long long Calculate_Complexity(char* argv[], int pos, double& time, int arr[], i
 	if (strcmp(argv[pos], "selection-sort") == 0) {
 		clock_t start, end;
 		start = clock();
-		long long comp = Selection_sort(arr, size);
+		unsigned long long int comp = Selection_sort(arr, size);
 		end = clock();
 		time = (double)(end - start) / CLOCKS_PER_SEC;
 		time *= 1000;
@@ -427,7 +427,7 @@ long long Calculate_Complexity(char* argv[], int pos, double& time, int arr[], i
 	if (strcmp(argv[pos], "merge-sort") == 0) {
 		clock_t start, end;
 		start = clock();
-		long long comp = mergeSort(arr,0,size-1);
+		unsigned long long int comp = mergeSort(arr, 0, size - 1);
 		end = clock();
 		time = (double)(end - start) / CLOCKS_PER_SEC;
 		time *= 1000;
@@ -436,7 +436,7 @@ long long Calculate_Complexity(char* argv[], int pos, double& time, int arr[], i
 	if (strcmp(argv[pos], "heap-sort") == 0) {
 		clock_t start, end;
 		start = clock();
-		long long comp = heapSort(arr, size);
+		unsigned long long int comp = heapSort(arr, size);
 		end = clock();
 		time = (double)(end - start) / CLOCKS_PER_SEC;
 		time *= 1000;
@@ -445,7 +445,7 @@ long long Calculate_Complexity(char* argv[], int pos, double& time, int arr[], i
 	if (strcmp(argv[pos], "quick-sort") == 0) {
 		clock_t start, end;
 		start = clock();
-		long long comp = quickSort(arr, 0, size-1);
+		unsigned long long int comp = quickSort(arr, 0, size - 1);
 		end = clock();
 		time = (double)(end - start) / CLOCKS_PER_SEC;
 		time *= 1000;
@@ -454,7 +454,7 @@ long long Calculate_Complexity(char* argv[], int pos, double& time, int arr[], i
 	if (strcmp(argv[pos], "counting-sort") == 0) {
 		clock_t start, end;
 		start = clock();
-		long long comp = countingSort(arr, size);
+		unsigned long long int comp = countingSort(arr, size);
 		end = clock();
 		time = (double)(end - start) / CLOCKS_PER_SEC;
 		time *= 1000;
@@ -463,11 +463,11 @@ long long Calculate_Complexity(char* argv[], int pos, double& time, int arr[], i
 	if (strcmp(argv[pos], "flash-sort") == 0) {
 		clock_t start, end;
 		start = clock();
-		long long comp = flashSort(arr, size);
+		unsigned long long int comp = flashSort(arr, size);
 		end = clock();
 		time = (double)(end - start) / CLOCKS_PER_SEC;
 		time *= 1000;
 		return comp;
 	}
-	return -1;
+	return 0;
 }
