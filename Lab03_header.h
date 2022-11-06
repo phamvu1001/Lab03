@@ -38,7 +38,7 @@ int partition(int a[], int i, int j, unsigned long long int& comp);
 unsigned long long int quickSort(int a[], int first, int last);
 unsigned long long int ShakerSort(int* a, int n);
 unsigned long long int RadixSort(int* arr, int n);
-unsigned long long intunsigned long long int ShellSort(int arr[], int n);
+unsigned long long int ShellSort(int arr[], int n);
 unsigned long long int countingSort(int a[], int n);
 unsigned long long int flashSort(int a[], int n);
 unsigned long long int Calculate_Complexity(char* argv[], int pos, double& time, int arr[], int size);
