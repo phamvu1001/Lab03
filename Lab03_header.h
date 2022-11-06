@@ -5,6 +5,7 @@
 #include <cmath>
 #include <time.h>
 #include <iomanip>
+#include <string.h>
 using namespace std;
 //template <class T>
 void swap(int& a, int& b);
