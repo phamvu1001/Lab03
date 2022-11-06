@@ -75,9 +75,9 @@ unsigned long long int Insertion_sort(int* a, int n) {
 
 // HEAP SORT
 // Ham dua cac phan tu ve vi tri dung voi cau truc heap
-int heapRebuild(int a[], int pos, int n)
+unsigned long long int heapRebuild(int a[], int pos, int n)
 {
-	int comp = 0;
+	unsigned long long int comp = 0;
 	while (2 * pos + 1 < n && ++comp)
 	{
 		int j = 2 * pos + 1;
@@ -94,18 +94,18 @@ int heapRebuild(int a[], int pos, int n)
 	return comp;
 }
 // Ham xay dung cau truc heap
-long long heapConstruct(int a[], int n)
+unsigned long long int heapConstruct(int a[], int n)
 {
-	int comp = 0;
+	unsigned long long int comp = 0;
 	for (int i = (n - 1) / 2; ++comp && i >= 0; i--) {
 		comp = comp + heapRebuild(a, i, n);
 	}
 	return comp;
 }
 // Heap sort
-long long heapSort(int a[], int n)
+unsigned long long int heapSort(int a[], int n)
 {
-	int comp = 0;
+	unsigned long long int comp = 0;
 	comp += heapConstruct(a, n);
 	int r = n - 1;
 	while (r > 0 && ++comp)
@@ -121,10 +121,11 @@ long long heapSort(int a[], int n)
 // Ham chia de tri
 // Chia mang ban dau thanh cac mang con sau do sap xep dung thu tu 
 // va tron lai thanh mang da sap xep
-long long merge(int a[], int first, int mid, int last)
+unsigned long long int merge(int a[], int first, int mid, int last)
 {
 	// khai báo biến đếm phép so sánh
-	int comp = 0;
+	unsigned long long int comp = 0;
+	
 	int n1 = mid - first + 1;
 	int n2 = last - mid;
 	int* L = new int[n1];
@@ -159,9 +160,9 @@ long long merge(int a[], int first, int mid, int last)
 	return comp;
 }
 // Ham sap xep tron
-long long mergeSort(int a[], int first, int last)
+unsigned long long int mergeSort(int a[], int first, int last)
 {
-	int comp = 0;
+	unsigned long long int comp = 0;
 	if (++comp && first < last) {
 		int mid = (first + last) / 2;
 		comp += mergeSort(a, first, mid);
@@ -173,7 +174,7 @@ long long mergeSort(int a[], int first, int last)
 
 // QUICK SORT
 // Ham phan hoach mang ban dau
-int partition(int a[], int i, int j, long long& comp) {
+int partition(int a[], int i, int j, unsigned long long int& comp) {
 	int pivot = a[i];
 	int m = i;
 
@@ -189,10 +190,10 @@ int partition(int a[], int i, int j, long long& comp) {
 }
 
 // Ham sap xep
-long long quickSort(int a[], int first, int last)
+unsigned long long int quickSort(int a[], int first, int last)
 {
-	int comp = 0;
-	long long comp_partition = 0;
+	unsigned long long int comp = 0;
+	unsigned long long int comp_partition = 0;
 
 	if (++comp && first >= last) {
 		return comp;
@@ -208,9 +209,9 @@ long long quickSort(int a[], int first, int last)
 	return comp;
 }
 //shaker sort
-long long ShakerSort(int *a, int n)
+unsigned long long int ShakerSort(int *a, int n)
 {
-	int comp = 0;
+	unsigned long long int comp = 0;
 	int Left = 0;
 	int Right = n - 1;
 	int k = 0;
@@ -238,9 +239,9 @@ long long ShakerSort(int *a, int n)
 	return comp;
 }
 //radix sort
-long long RadixSort(int *arr, int n)
+unsigned long long int RadixSort(int *arr, int n)
 {   
-    int comp = 0;
+    unsigned long long int comp = 0;
     int i, digitPlace = 1;
     int* result=new int[n]; 
     int largest = arr[0];
@@ -268,9 +269,9 @@ long long RadixSort(int *arr, int n)
     return comp;
 }
 //shell sort
-long long ShellSort(int arr[], int n)
+unsigned long long int ShellSort(int arr[], int n)
 {
-    int comp = 0;
+    unsigned long long int comp = 0;
     for (int gap = n / 2; ++comp && gap > 0; gap /= 2)
     {
         for (int i = gap;++comp && i < n; i += 1)
@@ -284,9 +285,9 @@ long long ShellSort(int arr[], int n)
     }
     return comp;
 }
-long long countingSort(int a[], int n)
+unsigned long long int countingSort(int a[], int n)
 {
-	int comp = 0;
+	unsigned long long int comp = 0;
 	int max = a[0];
 	for (int i = 1; ++comp && i < n; i++)
 		if (++comp && a[i] > max)
@@ -316,9 +317,9 @@ long long countingSort(int a[], int n)
 	return comp;
 }
 
-long long flashSort(int a[], int n)
+unsigned long long int flashSort(int a[], int n)
 {
-	int comp = 0;
+	unsigned long long int comp = 0;
 	int minVal = a[0];
 	int max = 0;
 	int m = int(0.45 * n);
