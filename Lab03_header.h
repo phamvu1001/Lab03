@@ -30,17 +30,17 @@ void write_to_file(string file_name, int* arr, int size);
 unsigned long long int Bubble_sort(int* a, int n);
 unsigned long long int Selection_sort(int* a, int n);
 unsigned long long int Insertion_sort(int* a, int n);
-long long heapConstruct(int a[], int n);
-long long heapSort(int a[], int n);
-long long merge(int a[], int first, int mid, int last);
-long long mergeSort(int a[], int first, int last);
-int partition(int a[], int i, int j, long long& comp);
-long long quickSort(int a[], int first, int last);
-long long ShakerSort(int* a, int n);
-long long RadixSort(int* arr, int n);
-long long ShellSort(int arr[], int n);
-long long countingSort(int a[], int n);
-long long flashSort(int a[], int n);
+unsigned long long int heapConstruct(int a[], int n);
+unsigned long long int heapSort(int a[], int n);
+unsigned long long int merge(int a[], int first, int mid, int last);
+unsigned long long int mergeSort(int a[], int first, int last);
+int partition(int a[], int i, int j, unsigned long long int& comp);
+unsigned long long int quickSort(int a[], int first, int last);
+unsigned long long int ShakerSort(int* a, int n);
+unsigned long long int RadixSort(int* arr, int n);
+unsigned long long intunsigned long long int ShellSort(int arr[], int n);
+unsigned long long int countingSort(int a[], int n);
+unsigned long long int flashSort(int a[], int n);
 unsigned long long int Calculate_Complexity(char* argv[], int pos, double& time, int arr[], int size);
 #endif // !HEADER_H
 
