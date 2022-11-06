@@ -88,7 +88,7 @@ void Command_line_1(char* argv[]) {
     }
     //vì kích thước mảng có thể lớn nên khuyên mọi người cấp phát động
     double time1;
-    int comp1;
+    unsigned long long int comp1;
     comp1 = Calculate_Complexity(argv, 2, time1, arr, size);
     cout << "ALGORITHM MODE\n";
     cout << "Algorithm:" << argv[2] << endl;
@@ -137,7 +137,7 @@ void Command_line_2(char* argv[]) {
     //vì kích thước mảng có thể lớn nên khuyên mọi người cấp phát động
 
     double time1;
-    int comp1;
+    unsigned long long int comp1;
     comp1 = Calculate_Complexity(argv, 2, time1, arr, size);
     cout << "ALGORITHM MODE\n";
     cout << "Algorithm:" << argv[2] << endl;
@@ -183,7 +183,7 @@ void Command_line_3(char* argv[]) {
 	//vì kích thước mảng có thể lớn nên khuyên mọi người cấp phát động
 	int* arr = new int[size];
 	double time1, time2, time3, time4;
-	int comp1, comp2, comp3, comp4;
+	unsigned long long int comp1, comp2, comp3, comp4;
 	cout << "ALGORITHM MODE\n";
 	cout << "Algorithm:" << argv[2] << endl;
 	cout << "Input size: " << size << endl;
@@ -320,7 +320,7 @@ void Command_line_5(char* argv[]) {
 	GenerateData(arr, size, data_order(argv, 5,order));
 	write_to_file("input.txt", arr, size);
 	double time1, time2;
-	int comp1, comp2;
+	unsigned long long int comp1, comp2;
 	int* arr2 = new int[size];
 	for (int i = 0; i < size; i++) {
 		arr2[i] = arr[i];
