@@ -5,17 +5,17 @@
 
 //Comparison Calc
 unsigned long long int Bubble_sort(int* a, int n) { // so phan tu n
-    unsigned long long int Calc = 1;
-    for (int i = 0; Calc++ && i < n - 1; i++) {
-        for (int j = 0; Calc++ && j < n - i - 1; j++) {
-            if (Calc++ && a[j] > a[j + 1]) {
-                int temp = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = temp;
-            }
-        }
-    }
-    return Calc-1;
+	unsigned long long int Calc = 1;
+	for (int i = 0; Calc++ && i < n - 1; i++) {
+		for (int j = 0; Calc++ && j < n - i - 1; j++) {
+			if (Calc++ && a[j] > a[j + 1]) {
+				int temp = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = temp;
+			}
+		}
+	}
+	return Calc - 1;
 }
 
 // SELECTION SORT
@@ -23,26 +23,26 @@ unsigned long long int Bubble_sort(int* a, int n) { // so phan tu n
 
 //Comparison Calc
 unsigned long long int Selection_sort(int* a, int n) {
-    unsigned long long int Calc = 1;
-    int MinIdx = 0;
-    for (int i = 0; Calc++ && i < n - 1; i++) {
+	unsigned long long int Calc = 1;
+	int MinIdx = 0;
+	for (int i = 0; Calc++ && i < n - 1; i++) {
 
-        // gan vi tri cua phan tu nho nhat cho i
-        MinIdx = i;
+		// gan vi tri cua phan tu nho nhat cho i
+		MinIdx = i;
 
-        // tim vi tri cua phan tu co gia tri nho nhat tu i+1 den het
-        for (int j = i + 1; Calc++ && j < n; j++)
-        {
-            if (Calc++ && a[MinIdx] >= a[j])
-                MinIdx = j;
-        }
+		// tim vi tri cua phan tu co gia tri nho nhat tu i+1 den het
+		for (int j = i + 1; Calc++ && j < n; j++)
+		{
+			if (Calc++ && a[MinIdx] >= a[j])
+				MinIdx = j;
+		}
 
-        // hoan doi phan tu thu i va phan tu nho nhat
-        int temp = a[i];
-        a[i] = a[MinIdx];
-        a[MinIdx] = temp;
-    }
-    return Calc-1;
+		// hoan doi phan tu thu i va phan tu nho nhat
+		int temp = a[i];
+		a[i] = a[MinIdx];
+		a[MinIdx] = temp;
+	}
+	return Calc - 1;
 }
 
 // INSERTION SORT
@@ -50,27 +50,27 @@ unsigned long long int Selection_sort(int* a, int n) {
 
 //Comparison Calc
 unsigned long long int Insertion_sort(int* a, int n) {
-    unsigned long long int Calc = 1;
-    int key, j;
-    // chay tu vi tri thu 2 den vi tri cuoi cung
-    for (int i = 1; Calc++ && i < n; i++) {
+	unsigned long long int Calc = 1;
+	int key, j;
+	// chay tu vi tri thu 2 den vi tri cuoi cung
+	for (int i = 1; Calc++ && i < n; i++) {
 
-        // gan key cho phan tu i
-        key = a[i];
+		// gan key cho phan tu i
+		key = a[i];
 
-        // j la vi tri cuoi cung cua phan da sap xep
-        j = i - 1;
+		// j la vi tri cuoi cung cua phan da sap xep
+		j = i - 1;
 
-        // so sanh lan luot key voi cac phan tu cua phan da sap xep
-        while (Calc++ && key < a[j] && Calc++ && j >= 0) {
-            //key< a[j] dam bao tinh on dinh cua day
-            a[j + 1] = a[j];
-            j--;
-        }
-        // chen phan tu key vao vi tri chen
-        a[j + 1] = key;
-    }
-    return Calc - 1;
+		// so sanh lan luot key voi cac phan tu cua phan da sap xep
+		while (Calc++ && key < a[j] && Calc++ && j >= 0) {
+			//key< a[j] dam bao tinh on dinh cua day
+			a[j + 1] = a[j];
+			j--;
+		}
+		// chen phan tu key vao vi tri chen
+		a[j + 1] = key;
+	}
+	return Calc - 1;
 }
 
 // HEAP SORT
@@ -125,7 +125,6 @@ unsigned long long int merge(int a[], int first, int mid, int last)
 {
 	// khai báo biến đếm phép so sánh
 	unsigned long long int comp = 0;
-	
 	int n1 = mid - first + 1;
 	int n2 = last - mid;
 	int* L = new int[n1];
@@ -174,50 +173,74 @@ unsigned long long int mergeSort(int a[], int first, int last)
 
 // QUICK SORT
 // Ham phan hoach mang ban dau
-int partition(int a[], int i, int j, unsigned long long int& comp) {
-	int pivot = a[i];
-	int m = i;
+int partition(int arr[], int l, int h, unsigned long long &comp)
+{
+	int x = arr[h];
+	int i = (l - 1);
 
-	for (int k = i + 1; ++comp && k <= j; ++k) {
-		if (++comp && a[k] < pivot) {
-			++m;
-			swap(a[k], a[m]);
+	for (int j = l;++comp && j <= h - 1; j++) {
+		if (++comp && arr[j] <= x) {
+			i++;
+			swap(arr[i], arr[j]);
 		}
 	}
-	swap(a[i], a[m]);
-
-	return m; // return the index of pivot
+	swap(arr[i + 1], arr[h]);
+	return (i + 1);
 }
 
-// Ham sap xep
-unsigned long long int quickSort(int a[], int first, int last)
+/* A[] --> Array to be sorted,
+l --> Starting index,
+h --> Ending index */
+unsigned long long int quickSort(int arr[], int l, int h)
 {
 	unsigned long long int comp = 0;
-	unsigned long long int comp_partition = 0;
+	// Create an auxiliary stack
+	int* stack=new int[h+l-1];
 
-	if (++comp && first >= last) {
-		return comp;
+	// initialize top of stack
+	int top = -1;
+
+	// push initial values of l and h to stack
+	stack[++top] = l;
+	stack[++top] = h;
+
+	// Keep popping from stack while is not empty
+	while (++comp && top >= 0) {
+		// Pop h and l
+		h = stack[top--];
+		l = stack[top--];
+
+		// Set pivot element at its correct position
+		// in sorted array
+		int p = partition(arr, l, h,comp);
+
+		// If there are elements on left side of pivot,
+		// then push left side to stack
+		if (++comp && p - 1 > l) {
+			stack[++top] = l;
+			stack[++top] = p - 1;
+		}
+
+		// If there are elements on right side of pivot,
+		// then push right side to stack
+		if (++comp && p + 1 < h) {
+			stack[++top] = p + 1;
+			stack[++top] = h;
+		}
 	}
-
-	int index = partition(a, first, last, comp_partition);
-	comp += comp_partition;
-
-	comp += quickSort(a, first, index - 1);
-
-	comp += quickSort(a, index + 1, last);
-
 	return comp;
 }
 //shaker sort
-unsigned long long int ShakerSort(int *a, int n)
+unsigned long long int ShakerSort(int* a, int n)
 {
 	unsigned long long int comp = 0;
 	int Left = 0;
 	int Right = n - 1;
-	int k = 0;
-	while (++comp && Left < Right)
+	int k = 0;//k is left_sorted_pos and right_sorted_pos in pseudocode
+	while (++comp&& Left < Right)
 	{
-		for (int i = Left;++comp && i < Right; i++)
+		//đưa phần tử lớn nhất về cuối
+		for (int i = Left; ++comp && i < Right; i++)
 		{
 			if (++comp && a[i] > a[i + 1])
 			{
@@ -226,7 +249,8 @@ unsigned long long int ShakerSort(int *a, int n)
 			}
 		}
 		Right = k;
-		for (int i = Right;++comp && i > Left; i--)
+		//đưa phần tử nhỏ nhất về đầu
+		for (int i = Right; ++comp && i > Left; i--)
 		{
 			if (++comp && a[i] < a[i - 1])
 			{
@@ -239,51 +263,60 @@ unsigned long long int ShakerSort(int *a, int n)
 	return comp;
 }
 //radix sort
-unsigned long long int RadixSort(int *arr, int n)
-{   
-    unsigned long long int comp = 0;
-    int i, digitPlace = 1;
-    int* result=new int[n]; 
-    int largest = arr[0];
-    for (int i = 1; ++comp && i < n; i++) {
-        if (++comp && arr[i] > largest) {
-            largest = arr[i];
-        }
-    }
-    while (++comp && largest / digitPlace > 0) {
-        int count[10] = { 0 };
-         for (i = 0;++comp && i < n; i++)
-            count[(arr[i] / digitPlace) % 10]++;
-        for (i = 1; ++comp && i < 10; i++)
-            count[i] += count[i - 1];
-        for (i = n - 1; ++comp && i >= 0; i--)
-        {
-            result[count[(arr[i] / digitPlace) % 10] - 1] = arr[i];
-            count[(arr[i] / digitPlace) % 10]--;
-        }
-        for (i = 0; ++comp && i < n; i++)
-            arr[i] = result[i];
-        digitPlace *= 10;
-    }
-    delete[]result;
-    return comp;
+unsigned long long int RadixSort(int* arr, int n)
+{
+	unsigned long long int comp = 0;
+	int i, digitPlace = 1;
+	int* result = new int[n];
+	int largest = arr[0];
+	//tìm phần tử lớn nhất
+	for (int i = 1; ++comp && i < n; i++) {
+		if (++comp && arr[i] > largest) {
+			largest = arr[i];
+		}
+	}
+	//xét duyệt các chữ số từ phải qua
+	while (++comp && largest / digitPlace > 0) {
+		int count[10] = { 0 };
+		//đếm số lượng phần tử mỗi nhóm
+		for (i = 0; ++comp && i < n; i++) {
+			count[(arr[i] / digitPlace) % 10]++;
+		}
+		//tính khoảng vị trí các nhóm
+		for (i = 1; ++comp && i < 10; i++) {
+			count[i] += count[i - 1];
+		}
+		//copy các nhóm ra dãy kết quả
+		for (i = n - 1; ++comp && i >= 0; i--)
+		{
+			result[count[(arr[i] / digitPlace) % 10] - 1] = arr[i];
+			count[(arr[i] / digitPlace) % 10]--;
+		}
+		//copy lại vào dãy chính
+		for (i = 0; ++comp && i < n; i++) {
+			arr[i] = result[i];
+		}
+		digitPlace *= 10;
+	}
+	delete[]result;
+	return comp;
 }
 //shell sort
 unsigned long long int ShellSort(int arr[], int n)
 {
-    unsigned long long int comp = 0;
-    for (int gap = n / 2; ++comp && gap > 0; gap /= 2)
-    {
-        for (int i = gap;++comp && i < n; i += 1)
-        {
-            int temp = arr[i];
-            int j;
-            for (j = i; ++comp && j >= gap && ++comp && arr[j - gap] > temp; j -= gap)
-                arr[j] = arr[j - gap];
-            arr[j] = temp;
-        }
-    }
-    return comp;
+	unsigned long long int comp = 0;
+	for (int gap = n / 2; ++comp && gap > 0; gap /= 2)
+	{
+		for (int i = gap; ++comp && i < n; i += 1)
+		{
+			int temp = arr[i];
+			int j;
+			for (j = i; ++comp && j >= gap && ++comp && arr[j - gap] > temp; j -= gap)
+				arr[j] = arr[j - gap];
+			arr[j] = temp;
+		}
+	}
+	return comp;
 }
 unsigned long long int countingSort(int a[], int n)
 {
@@ -371,6 +404,7 @@ unsigned long long int flashSort(int a[], int n)
 	comp += Insertion_sort(a, n);
 	return comp;
 }
+// hàm tính toán thời gian sắp xếp và trả về số phép so sánh
 unsigned long long int Calculate_Complexity(char* argv[], int pos, double& time, int arr[], int size) {
 	if (strcmp(argv[pos], "shaker-sort") == 0) {
 		clock_t start, end;
