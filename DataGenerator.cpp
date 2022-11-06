@@ -91,6 +91,7 @@ void GenerateData(int a[], int n, int dataType)
 		break;
 	default:
 		printf("Error: unknown data type!\n");
+		return;
 	}
 }
 void Copy_Array(int* a, int* b, int n) {
